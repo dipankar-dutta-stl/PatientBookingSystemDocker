@@ -1,0 +1,20 @@
+apiVersion : apps/v1
+kind : Deployment
+metadata :
+  name : patient-booking-systen-deployment
+spec :
+  selector :
+    matchLabels :
+      app : patient-booking-system-selector
+  replicas : 1
+  template :
+    metadata :
+      labels :
+        app : patient-booking-system-selector
+    spec :
+      containers :
+        - name : patient-booking-system-container
+          image : dipankarduttastl/patient-booking-system-img
+          ports :
+            - containerPort : 8081
+              protocol : TCP
